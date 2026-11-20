@@ -97,7 +97,14 @@ def train():
                 "random_state": 42, "features": len(NUMERIC_FEATURES) + len(CATEGORICAL_FEATURES)
             })
             mlflow.log_metrics({"mae": mae, "rmse": rmse, "r2": r2})
-            mlflow.sklearn.log_model(pipeline, name="model")
+            mlflow.sklearn.log_model(
+                pipeline,
+                name="model",
+                skops_trusted_types=[
+                    "numpy.dtype",
+                    "sklearn.tree._tree.Tree"
+                ]
+            )
             print(f"{name}: MAE={mae:.3f}, RMSE={rmse:.3f}, R2={r2:.3f}")
             if rmse < best_rmse:
                 best_rmse = rmse

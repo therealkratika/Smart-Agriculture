@@ -1,0 +1,25 @@
+artifact_path: /Users/there/Downloads/smart-agriculture-mlops/mlartifacts/1/models/m-6eb718dccb2e4c75aa3f377a29f2e4e9/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.14.7
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.1
+    skops_trusted_types:
+    - numpy.dtype
+    - sklearn.tree._tree.Tree
+mlflow_version: 3.18.0
+model_id: m-6eb718dccb2e4c75aa3f377a29f2e4e9
+model_size_bytes: 8400205
+model_uuid: m-6eb718dccb2e4c75aa3f377a29f2e4e9
+prompts: null
+run_id: 2d5a05753e224b5981e8335af31bd9d0
+utc_time_created: '2026-11-19 12:07:52.573950'

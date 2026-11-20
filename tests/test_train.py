@@ -1,6 +1,7 @@
 import pandas as pd
 import pytest
 from train import load_data, build_pipeline, NUMERIC_FEATURES, CATEGORICAL_FEATURES, TARGET
+from monitor_retrain import SKOPS_TRUSTED_TYPES
 from sklearn.ensemble import RandomForestRegressor
 
 
@@ -24,3 +25,8 @@ def test_pipeline_can_fit_and_predict():
 def test_load_data_rejects_missing_file():
     with pytest.raises(FileNotFoundError):
         load_data("data/does-not-exist.csv")
+
+
+def test_monitor_retrain_uses_explicit_skops_trust_allowlist():
+    assert "numpy.dtype" in SKOPS_TRUSTED_TYPES
+    assert "sklearn.tree._tree.Tree" in SKOPS_TRUSTED_TYPES
